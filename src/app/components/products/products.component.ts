@@ -2,15 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { ProductElementComponent } from "./inner/product-element/product-element.component";
 import { debounceTime } from 'rxjs';
 import { ForexService } from '../../service/forex/forex.service';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import { ProductService } from '../../service/product/product.service';
-import { PageEvent } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [ProductElementComponent],
+  imports: [
+    ProductElementComponent,
+    MatPaginator,
+    ReactiveFormsModule,
+  ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
